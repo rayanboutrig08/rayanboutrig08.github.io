@@ -1,17 +1,20 @@
 backend:
   name: git-gateway
-  branch: main # or master, depending on your GitHub branch
+  branch: main
 
-media_folder: "images" # Where images will be saved
+media_folder: "images"
 public_folder: "/images"
 
 collections:
   - name: "blog"
     label: "Articles"
-    folder: "_posts" # Where your new articles will be saved as files
+    folder: "_posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
+      # This is the new line you are adding
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post.njk" }
+      
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Author", name: "author", widget: "string" }
