@@ -1,41 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} | The Student Envoy</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        .serif { font-family: 'Playfair Display', serif; }
-        body { font-family: 'Inter', sans-serif; line-height: 1.6; }
-    </style>
-</head>
-<body class="bg-stone-50 text-stone-900">
-    <nav class="p-6 border-b border-stone-200 bg-white">
-        <a href="/" class="serif text-2xl font-bold uppercase tracking-tighter">The Student Envoy</a>
-    </nav>
-
-    <article class="max-w-2xl mx-auto py-20 px-6">
-        <header class="mb-12">
-            <h1 class="serif text-5xl mb-4 leading-tight">{{ title }}</h1>
-            <div class="text-stone-500 flex items-center gap-4">
-                <span>By {{ author }}</span>
-                <span>•</span>
-                <time>{{ date }}</time>
-            </div>
-            {% if thumbnail %}
-            <img src="{{ thumbnail }}" class="mt-8 w-full h-auto rounded shadow-sm">
-            {% endif %}
-        </header>
-
-        <div class="prose prose-stone lg:prose-xl">
-            {{ content | safe }}
-        </div>
+---
+layout: base.njk
+---
+<article class="max-w-3xl mx-auto px-6 py-20">
+    <header class="mb-10 text-center">
+        <h1 class="text-5xl font-serif font-bold mb-4">{{ title }}</h1>
         
-        <div class="mt-20 pt-10 border-t border-stone-200">
-            <a href="/" class="text-blue-700 font-semibold">← Back to Homepage</a>
-        </div>
-    </article>
-</body>
-</html>
+        <p class="text-gray-500 uppercase tracking-widest text-sm">
+            By {{ author }} — {{ date | date }}
+        </p>
+    </header>
+
+    {% if thumbnail %}
+        <img src="{{ thumbnail }}" class="w-full h-96 object-cover rounded-lg mb-10 shadow-lg">
+    {% endif %}
+
+    <div class="prose prose-lg lg:prose-xl font-serif leading-relaxed text-gray-800">
+        {{ content | safe }}
+    </div>
+    
+    <div class="mt-20 border-t pt-10">
+        <a href="/" class="text-blue-600 hover:underline font-bold">← Back to Homepage</a>
+    </div>
+</article>
