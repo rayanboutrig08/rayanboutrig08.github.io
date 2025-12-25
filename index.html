@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Student Envoy | Political Journal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        h1, h2, .serif { font-family: 'Playfair Display', serif; }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-900">
+
+    <nav class="border-b border-stone-300 bg-white sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-3xl font-bold tracking-tighter">THE STUDENT ENVOY</h1>
+            <div class="hidden md:flex space-x-6 font-semibold text-sm uppercase tracking-widest">
+                <a href="#" class="hover:text-blue-700">Editorials</a>
+                <a href="#" class="hover:text-blue-700">Global</a>
+                <a href="#" class="hover:text-blue-700">Local</a>
+                <a href="#" class="hover:text-blue-700">Interviews</a>
+            </div>
+            <button class="bg-black text-white px-4 py-2 text-sm font-bold hover:bg-stone-800 transition">SUBSCRIBE</button>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-4 py-8">
+        
+        <section class="grid md:grid-cols-3 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="bg-stone-200 h-96 mb-4 overflow-hidden rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&q=80&w=1200" alt="Capitol" class="w-full h-full object-cover">
+                </div>
+                <span class="text-blue-700 font-bold text-xs uppercase tracking-widest">Featured Analysis</span>
+                <h2 class="text-4xl md:text-5xl mt-2 leading-tight">The Youth Vote: Why 2026 is a Turning Point for Gen Z Policy</h2>
+                <p class="mt-4 text-stone-600 text-lg leading-relaxed">As midterms approach, high school seniors are mobilizing at rates unseen in decades. Here is what they are demanding from candidates...</p>
+                <div class="mt-4 flex items-center space-x-2 text-sm text-stone-500 font-medium">
+                    <span>By Alex Rivera</span>
+                    <span>•</span>
+                    <span>Oct 24, 2025</span>
+                </div>
+            </div>
+
+            <div class="border-l border-stone-200 pl-8">
+                <h3 class="font-bold border-b-2 border-black pb-2 mb-4">LATEST UPDATES</h3>
+                <div class="space-y-6">
+                    <div>
+                        <span class="text-xs text-stone-400 font-bold uppercase">Local Gov</span>
+                        <h4 class="font-bold leading-snug hover:underline cursor-pointer">School Board proposes new budget for digital literacy.</h4>
+                    </div>
+                    <div>
+                        <span class="text-xs text-stone-400 font-bold uppercase">Climate</span>
+                        <h4 class="font-bold leading-snug hover:underline cursor-pointer">Youth activists sue state over carbon emissions.</h4>
+                    </div>
+                    <div>
+                        <span class="text-xs text-stone-400 font-bold uppercase">Economy</span>
+                        <h4 class="font-bold leading-snug hover:underline cursor-pointer">What the federal interest rate hike means for student loans.</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-stone-300 mb-12">
+
+        <section>
+            <h3 class="serif text-3xl mb-8 italic text-center text-stone-700 underline decoration-1 underline-offset-8">Perspectives</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group">
+                    <div class="h-48 bg-stone-200 mb-4 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1541872703-74c5e443d1f9?auto=format&fit=crop&q=80&w=600" class="group-hover:scale-105 transition duration-500">
+                    </div>
+                    <h4 class="text-xl font-bold leading-tight group-hover:text-blue-700">The Ethics of AI in Political Campaigning</h4>
+                    <p class="text-sm mt-2 text-stone-600">Exploring the thin line between targeted messaging and manipulation.</p>
+                </div>
+                <div class="group">
+                    <div class="h-48 bg-stone-200 mb-4 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1575328630189-b10403bed891?auto=format&fit=crop&q=80&w=600" class="group-hover:scale-105 transition duration-500">
+                    </div>
+                    <h4 class="text-xl font-bold leading-tight group-hover:text-blue-700">Rethinking the Electoral College in the Digital Age</h4>
+                    <p class="text-sm mt-2 text-stone-600">A look at why the current system is failing modern urban voters.</p>
+                </div>
+                <div class="group">
+                    <div class="h-48 bg-stone-200 mb-4 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=600" class="group-hover:scale-105 transition duration-500">
+                    </div>
+                    <h4 class="text-xl font-bold leading-tight group-hover:text-blue-700">Interviews: The Mayor Speaks on Youth Employment</h4>
+                    <p class="text-sm mt-2 text-stone-600">We sat down with the Mayor to discuss summer internships and job security.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-stone-900 text-stone-400 py-12 mt-12">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-sm font-bold uppercase tracking-widest text-white">The Student Envoy &copy; 2025</p>
+            <div class="flex space-x-6 mt-4 md:mt-0 text-xs">
+                <a href="#" class="hover:text-white">ABOUT US</a>
+                <a href="#" class="hover:text-white">SUBMISSION GUIDELINES</a>
+                <a href="#" class="hover:text-white">STAFF</a>
+                <a href="#" class="hover:text-white">CONTACT</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
