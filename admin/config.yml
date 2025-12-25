@@ -6,7 +6,7 @@ media_folder: "images"
 public_folder: "/images"
 
 collections:
-  - name: "blog"
+  - name: "post"
     label: "Articles"
     folder: "_posts"
     create: true
