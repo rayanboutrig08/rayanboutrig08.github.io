@@ -1,6 +1,8 @@
 backend:
   name: git-gateway
-  branch: main # Make sure this matches your GitHub branch name
+backend:
+  name: git-gateway
+  branch: main
 
 media_folder: "images"
 public_folder: "/images"
@@ -12,20 +14,9 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      # 1. The Layout (Hidden from the writer, but tells the site how to look)
-      - { label: "Layout", name: "layout", widget: "hidden", default: "post.njk" }
-      
-      # 2. The Title of the article
-      - { label: "Title", name: "title", widget: "string" }
-      
-      # 3. The Date (will pop up a calendar)
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      
-      # 4. The Author's name
-      - { label: "Author", name: "author", widget: "string" }
-      
-      # 5. The Image (allows you to upload a photo)
-      - { label: "Featured Image", name: "thumbnail", widget: "image" }
-      
-      # 6. The actual Story content
-      - { label: "Body", name: "body", widget: "markdown" }
+      - {label: "Layout", name: "layout", widget: "hidden", default: "post.njk"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Featured Image", name: "thumbnail", widget: "image"}
+      - {label: "Body", name: "body", widget: "markdown"}
