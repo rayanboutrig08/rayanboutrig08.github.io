@@ -3,46 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ settings.site_title }}</title>
+  
+  <title>{{ title }} | {{ settings.site_title | default("My News Site") }}</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    /* This connects your CMS color picker to your site header */
-    .brand-bg {
-      background-color: {{ settings.brand_color | default('#1a1a1a') }};
+    /* Custom styles driven by your CMS Settings */
+    :root {
+      --brand-color: {{ settings.brand_color | default('#1d4ed8') }};
     }
-    
-    /* These classes switch based on your CMS font selection */
-    .font-serif { font-family: Georgia, serif; }
-    .font-sans-serif { font-family: ui-sans-serif, system-ui, sans-serif; }
-    .font-mono { font-family: ui-monospace, monospace; }
+
+    .brand-bg { background-color: var(--brand-color); }
+    .brand-text { color: var(--brand-color); }
+    .brand-border { border-color: var(--brand-color); }
+
+    /* Font switch logic */
+    .font-serif { font-family: 'Georgia', serif; }
+    .font-sans { font-family: ui-sans-serif, system-ui, sans-serif; }
+    .font-mono { font-family: ui-monospace, 'Courier New', monospace; }
   </style>
 </head>
 
-<body class="bg-gray-50 font-{{ settings.font_style | default('sans-serif') }} text-gray-900">
+<body class="bg-gray-50 text-gray-900 font-{{ settings.font_style | default('sans') }} flex flex-col min-h-screen">
 
-  <header class="brand-bg text-white p-6 shadow-md">
-    <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-3xl font-bold">
-        <a href="/">{{ settings.site_title }}</a>
-      </h1>
+  <header class="brand-bg text-white shadow-lg">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold tracking-tight hover:opacity-90">
+        {{ settings.site_title | default("My News") }}
+      </a>
+
       <nav>
-        <ul class="flex space-x-4">
-          <li><a href="/" class="hover:underline">Home</a></li>
-          <li><a href="/admin" class="hover:underline">Login</a></li>
+        <ul class="flex space-x-6 font-medium">
+          {% for item in navigation.items %}
+            <li>
+              <a href="{{ item.link }}" class="hover:text-gray-200 transition-colors">
+                {{ item.text }}
+              </a>
+            </li>
+          {% endfor %}
+          {% if not navigation.items %}
+            <li><a href="/" class="hover:underline">Home</a></li>
+          {% endif %}
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container mx-auto py-10 px-4">
-    {{ content | safe }}
+  <main class="container mx-auto px-4 py-10 flex-grow">
+    <div class="max-w-4xl mx-auto">
+      {{ content | safe }}
+    </div>
   </main>
 
-  <footer class="bg-white border-t mt-12 py-8">
-    <div class="container mx-auto text-center text-gray-500">
-      <p>&copy; 2025 {{ settings.site_title }}. Built with Eleventy.</p>
+  <footer class="bg-white border-t border-gray-200 py-10">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-gray-600">
+        &copy; 2025 {{ settings.site_title }}. All rights reserved.
+      </p>
+      <div class="mt-4 flex justify-center space-x-4 text-sm text-gray-400">
+        <a href="/admin" class="hover:text-gray-600">Admin Login</a>
+      </div>
     </div>
   </footer>
 
