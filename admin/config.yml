@@ -19,7 +19,17 @@ collections:
         fields:
           - {label: "Site Name", name: "site_title", widget: "string"}
           - {label: "Theme Color", name: "brand_color", widget: "color"}
-          - {label: "Font Style", name: "font_style", widget: "select", options: ["serif", "sans-serif", "mono"]}
+          - {label: "Font Style", name: "font_style", widget: "select", options: ["serif", "sans-serif", "mono"]} 
+          - name: "navigation"
+        label: "Menu Links"
+        file: "_data/navigation.json"
+        fields:
+          - label: "Links"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Label", name: "text", widget: "string"}
+              - {label: "URL", name: "link", widget: "string"}
 
   - name: "blog"
     label: "Articles"
