@@ -1,30 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Digital Journal</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ settings.site_title }}</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* This connects your CMS color picker to your site header */
+    .brand-bg {
+      background-color: {{ settings.brand_color | default('#1a1a1a') }};
+    }
+    
+    /* These classes switch based on your CMS font selection */
+    .font-serif { font-family: Georgia, serif; }
+    .font-sans-serif { font-family: ui-sans-serif, system-ui, sans-serif; }
+    .font-mono { font-family: ui-monospace, monospace; }
+  </style>
 </head>
-<body class="bg-blue-50 text-gray-900">
 
+<body class="bg-gray-50 font-{{ settings.font_style | default('sans-serif') }} text-gray-900">
+
+  <header class="brand-bg text-white p-6 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-3xl font-bold">
+        <a href="/">{{ settings.site_title }}</a>
+      </h1>
+      <nav>
+        <ul class="flex space-x-4">
+          <li><a href="/" class="hover:underline">Home</a></li>
+          <li><a href="/admin" class="hover:underline">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto py-10 px-4">
     {{ content | safe }}
+  </main>
 
-    <footer class="py-10 text-center text-gray-400 text-sm border-t mt-12">
-        &copy; 2025 The Digital Journal. All rights reserved.
-    </footer>
+  <footer class="bg-white border-t mt-12 py-8">
+    <div class="container mx-auto text-center text-gray-500">
+      <p>&copy; 2025 {{ settings.site_title }}. Built with Eleventy.</p>
+    </div>
+  </footer>
 
-    <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
-        });
-      }
-    </script>
 </body>
 </html>
