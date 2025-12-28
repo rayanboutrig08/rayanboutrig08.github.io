@@ -1,4 +1,4 @@
-backend:
+- {label: "Short Summary", name: "description", widget: "text"backend:
   name: git-gateway
   branch: main
   publish_mode: simple
@@ -16,6 +16,8 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
+    - {label: "Category", name: "category", widget: "select", options: ["News", "Opinion", "Features"]}
+    - {label: "Short Summary", name: "description", widget: "text"}
       - {label: "Layout", name: "layout", widget: "hidden", default: "post.njk"}
       - {label: "Tags", name: "tags", widget: "hidden", default: "blog"}
       - {label: "Title", name: "title", widget: "string"}
