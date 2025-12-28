@@ -1,26 +1,22 @@
-- {label: "Short Summary", name: "description", widget: "text"backend:
+backend:
   name: git-gateway
   branch: main
-  publish_mode: simple
-display_url: https://your-site-name.netlify.app
 
+publish_mode: simple
 media_folder: "images"
 public_folder: "/images"
 
 collections:
   - name: "blog"
     label: "Articles"
-    folder: "_posts" # Double check this matches your folder name exactly!
-    extension: "md"
-    format: "frontmatter"
+    folder: "_posts"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-    - {label: "Category", name: "category", widget: "select", options: ["News", "Opinion", "Features"]}
-    - {label: "Short Summary", name: "description", widget: "text"}
       - {label: "Layout", name: "layout", widget: "hidden", default: "post.njk"}
-      - {label: "Tags", name: "tags", widget: "hidden", default: "blog"}
+      - {label: "Tags", name: "tags", widget: "hidden", default: ["blog"]}
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Short Summary", name: "description", widget: "text"}
       - {label: "Author", name: "author", widget: "string", default: "Admin"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
