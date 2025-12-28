@@ -21,3 +21,16 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
+- name: "settings"
+    label: "Site Settings"
+    delete: false # Prevents you from accidentally deleting your settings
+    editor:
+      preview: false
+    files:
+      - name: "general"
+        label: "General Configuration"
+        file: "_data/settings.json"
+        fields:
+          - {label: "Site Name", name: "site_title", widget: "string"}
+          - {label: "Theme Color", name: "brand_color", widget: "color"}
+          - {label: "Font Style", name: "font_style", widget: "select", options: ["serif", "sans-serif", "mono"]}
